@@ -1,2 +1,2 @@
-# webgl_3js_exp
+# webgl threejs experiment
 An experiment in webgl based 3D rendering.
