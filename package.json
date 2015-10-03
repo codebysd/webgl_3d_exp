@@ -1,0 +1,27 @@
+{
+  "name": "webgl_3js_exp",
+  "version": "1.0.0",
+  "description": "An experiment in webgl 3d rendering with 3js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebysd/webgl_3js_exp.git"
+  },
+  "keywords": [
+    "3d",
+    "3js",
+    "webgl"
+  ],
+  "author": "S.D.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codebysd/webgl_d3_exp/issues"
+  },
+  "homepage": "https://github.com/codebysd/webgl_d3_exp#readme",
+  "dependencies": {
+    "browserify": "^11.2.0"
+  }
+}
