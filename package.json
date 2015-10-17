@@ -1,29 +1,31 @@
 {
-  "name": "webgl_threejs_exp",
+  "private": true,
+  "name": "webgl_3d_exp",
   "version": "1.0.0",
-  "description": "An experiment in webgl 3d rendering with threejs",
+  "description": "An experiment in webgl 3d rendering with babylonjs",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codebysd/webgl_threejs_exp.git"
+    "url": "git+https://github.com/codebysd/webgl_3d_exp.git"
   },
   "keywords": [
     "3d",
-    "threejs",
+    "babylonjs",
     "webgl"
   ],
   "author": "S.D.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codebysd/webgl_d3_exp/issues"
+    "url": "https://github.com/codebysd/webgl_3d_exp/issues"
   },
-  "homepage": "https://github.com/codebysd/webgl_d3_exp#readme",
+  "homepage": "https://github.com/codebysd/webgl_3d_exp#readme",
   "dependencies": {
-    "three": "^0.72.0",
-    "three-orbit-controls": "^71.0.0"
+    "babylonjs": "^2.2.0",
+    "handjs": "^1.3.11",
+    "lodash": "^3.10.1"
   },
   "devDependencies": {
     "browserify": "^11.2.0",
