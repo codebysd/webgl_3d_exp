@@ -44,3 +44,4 @@ loader.load();
 window.addEventListener('resize',function(){
     engine.resize();
 });
+
