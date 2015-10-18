@@ -1,13 +1,20 @@
 var BABYLON = require('babylonjs');
 
+/**
+ * Ground plane.
+ * @param {Object} scene - scene
+ * @constructor
+ */
 function Ground(scene){
-    // mesh
+    // mesh, deform with a heightmap
     this.mesh = BABYLON.Mesh.CreateGroundFromHeightMap('ground_mesh','images/heightmap.png',1000,1000,100,0,50,scene);
     this.mesh.receiveShadows = true;
-    this.mesh.position.y = -50;
+    this.mesh.position.y = -50; // keep all heightmap below origin
 
     // material
     this.material = new BABYLON.StandardMaterial('ground_mat',scene);
+
+    // rough surface
     this.material.specularColor = new BABYLON.Color3(0.5,0.5,0.5);
     this.material.specularPower = 0.7;
 

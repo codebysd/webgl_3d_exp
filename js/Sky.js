@@ -1,5 +1,10 @@
 var BABYLON = require('babylonjs');
 
+/**
+ * Sky object. Contains ambient and sun lighting.
+ * @param {Object} scene - scene
+ * @constructor
+ */
 function Sky(scene){
     // sky box
     this.mesh = BABYLON.Mesh.CreateBox('sky_mesh_box',10000,scene);
@@ -14,7 +19,7 @@ function Sky(scene){
     this.material.ambientColor = BABYLON.Color3.Black();
     this.material.specularPower = 0;
 
-    // sky box texture
+    // sky box texture is a cube map
     this.texture = new BABYLON.CubeTexture("images/sky/",scene,Sky.IMAGES);
     this.texture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
@@ -24,6 +29,7 @@ function Sky(scene){
     this.hemiLight.specular = BABYLON.Color3.Black();
     this.hemiLight.groundColor = BABYLON.Color3.Black();
 
+    // sun light
     this.sunLight = new BABYLON.DirectionalLight('sky_light_sun',new BABYLON.Vector3(-10,-10,2),scene);
     this.sunLight.diffuse = new BABYLON.Color3(0.9,0.9,0.9);
     this.sunLight.specular = new BABYLON.Color3(0.9,0.9,0.9);
@@ -38,6 +44,10 @@ function Sky(scene){
     this.mesh.material = this.material;
 }
 
+/**
+ * Cube map images.
+ * @type {Array}
+ */
 Sky.IMAGES =['pn_xyz','py2','pn_xyz','pn_xyz','ny2','pn_xyz'].map(function(v){return 'sky_' + v + '.png'});
 
 module.exports = Sky;

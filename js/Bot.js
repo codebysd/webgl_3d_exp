@@ -1,8 +1,14 @@
 var BABYLON = require('babylonjs');
 
-// cache mesh
+// cache the robot mesh
 var robotMesh;
 
+/**
+ * Robot model.
+ * @param {Object} scene - scene
+ * @param {Object} mesh - robot mesh
+ * @constructor
+ */
 function Bot(scene,mesh) {
     // mesh
     this.mesh = mesh;
@@ -18,18 +24,27 @@ function Bot(scene,mesh) {
             attributes: ["position", "normal", "uv"],
             uniforms: ["world", "worldView", "worldViewProjection", "view", "projection","cameraPosition","lightPosition"]
         });
+    this.material.backFaceCulling = false;
+
+    // reflective texture
     this.refTexture = new BABYLON.Texture("images/envmap.png",scene);
     this.refTexture.wrapU = BABYLON.Texture.CLAMP_ADDRESSMODE;
     this.refTexture.wrapV = BABYLON.Texture.CLAMP_ADDRESSMODE;
 
+    // set values for shader
     this.material.setTexture("refSampler",this.refTexture);
     this.material.setVector3("cameraPosition", BABYLON.Vector3.Zero());
-    this.material.backFaceCulling = false;
 
     // assign
     this.mesh.material = this.material;
 }
 
+/**
+ * Loads the robot model. Either from cached mesh, or by running a mesh task on asset manager.
+ * @param {Object} scene - scene.
+ * @param {Object} assetManager - asset manager instance. load() should be called on asset manager afterwards.
+ * @param {function(Error,Bot)} callback - callback function.
+ */
 Bot.load = function(scene,assetManager,callback){
 
     if(robotMesh){

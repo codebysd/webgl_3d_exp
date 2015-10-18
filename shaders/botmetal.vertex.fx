@@ -19,12 +19,15 @@ varying vec3 vNormal;
 
 void main() {
 
+    // view position and normal
     vPosition = vec4( position, 1. );
     vNormal = normal;
 
+    // world postion and normal
     vPositionW = vec3(world * vec4(position, 1.0));
     vNormalW = normalize(vec3(world * vec4(normal, 0.0)));
 
+    // vertex position
     gl_Position = worldViewProjection * vPosition;
 
 }

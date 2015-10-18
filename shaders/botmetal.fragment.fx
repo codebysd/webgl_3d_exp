@@ -53,6 +53,6 @@ void main(void) {
     specularAmount = pow(specularAmount, max(1., 64.)) * 2.;
     vec3 specularColor = mix(vec3(0,0,0),vec3(1,1,1),specularAmount);
 
-
+    // specular plus a distribution of diffuse and reflection color
     gl_FragColor = vec4(specularColor + mix(diffuseColor,refColor,fresAmount) ,1. );
 }
