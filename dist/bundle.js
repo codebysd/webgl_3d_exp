@@ -237,7 +237,7 @@ function Sky(scene){
  * Cube map images.
  * @type {Array}
  */
-Sky.IMAGES =['pn_xyz','py2','pn_xyz','pn_xyz','ny2','pn_xyz'].map(function(v){return 'sky_' + v + '.png'});
+Sky.IMAGES =['side_orb','py2','pn_xyz','pn_xyz','ny2','pn_xyz'].map(function(v){return 'sky_' + v + '.png'});
 
 module.exports = Sky;
 },{"babylonjs":7}],6:[function(require,module,exports){
