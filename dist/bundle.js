@@ -219,7 +219,7 @@ function Sky(scene){
     this.hemiLight.groundColor = BABYLON.Color3.Black();
 
     // sun light
-    this.sunLight = new BABYLON.DirectionalLight('sky_light_sun',new BABYLON.Vector3(-5,-5,2),scene);
+    this.sunLight = new BABYLON.DirectionalLight('sky_light_sun',new BABYLON.Vector3(-10,-10,2),scene);
     this.sunLight.diffuse = new BABYLON.Color3(0.9,0.9,0.9);
     this.sunLight.specular = new BABYLON.Color3(0.9,0.9,0.9);
     this.sunLight.setDirectionToTarget(BABYLON.Vector3.Zero());
@@ -289,7 +289,7 @@ hdr.gaussStandDev = 6.0;
 hdr.minimumLuminance = 0.5;
 hdr.luminanceDecreaseRate = 0.5;
 hdr.luminanceIncreaserate = 0.5;
-hdr.exposure = 1.8;
+hdr.exposure = 2;
 
 // load bot model
 var loader = new BABYLON.AssetsManager(scene);
