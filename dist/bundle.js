@@ -219,7 +219,7 @@ function Sky(scene){
     this.hemiLight.groundColor = BABYLON.Color3.Black();
 
     // sun light
-    this.sunLight = new BABYLON.DirectionalLight('sky_light_sun',new BABYLON.Vector3(-10,-10,2),scene);
+    this.sunLight = new BABYLON.DirectionalLight('sky_light_sun',new BABYLON.Vector3(-5,-5,2),scene);
     this.sunLight.diffuse = new BABYLON.Color3(0.9,0.9,0.9);
     this.sunLight.specular = new BABYLON.Color3(0.9,0.9,0.9);
     this.sunLight.setDirectionToTarget(BABYLON.Vector3.Zero());
@@ -266,6 +266,30 @@ var cam = new Cam(canvas,scene);
 var ground = new Ground(scene);
 var grass = new Grass(ground,scene);
 
+// setup lens effects
+var lensEffect = new BABYLON.LensRenderingPipeline('lens', {
+    edge_blur: 1.0,
+    chromatic_aberration: 1.0,
+    distortion: 1.0,
+    dof_focus_distance: cam.camera.radius,
+    dof_aperture: 1.0,
+    grain_amount: 0,
+    dof_pentagon: true,
+    dof_gain: 1.0,
+    dof_threshold: 1.0,
+    dof_darken: 0.25
+}, scene, 1.0, cam.camera);
+
+// setup hrd rendering
+var hdr = new BABYLON.HDRRenderingPipeline("hdr", scene, 1.0, null, cam.camera);
+hdr.brightThreshold = 1.0;
+hdr.gaussCoeff = 0.3;
+hdr.gaussMean = 1.0;
+hdr.gaussStandDev = 6.0;
+hdr.minimumLuminance = 0.5;
+hdr.luminanceDecreaseRate = 0.5;
+hdr.luminanceIncreaserate = 0.5;
+hdr.exposure = 1.8;
 
 // load bot model
 var loader = new BABYLON.AssetsManager(scene);
@@ -290,6 +314,9 @@ Bot.load(scene,loader,function(err,bot){
             // update camera position, bot material's shader needs this for calculations
             bot.material.setVector3("cameraPosition", cam.camera.position);
 
+            // update depth of field
+            lensEffect.setFocusDistance(cam.camera.radius);
+
             // render the scene
             scene.render();
         });
@@ -298,6 +325,8 @@ Bot.load(scene,loader,function(err,bot){
 
 // load bot assets
 loader.load();
+
+
 
 
 

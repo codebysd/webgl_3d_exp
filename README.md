@@ -8,6 +8,7 @@ Project uses the awesome [BabylonJS library](https://github.com/BabylonJS/Babylo
 Models used are from [BlendSwap](http://www.blendswap.com/).
 Mesh material uses a rough combination of diffuse, specular and fresnel shader.
 Ground is generated from a heightmap and grass cover is made of procedurally distributed sprites.
+The post processing pipeline includes lens effects and hdr rendering.
 
 ### [Play around with live demo](http://codebysd.github.io/webgl_3d_exp/)
 You'll need a modern web browser capable of webgl and a machine with decent graphics hardware.
