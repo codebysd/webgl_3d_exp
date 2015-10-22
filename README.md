@@ -2,7 +2,7 @@
 This project is an exploration for 3D rendering in web browsers.
 More specifically, browsers that support OpenGL based rendering capabilities (WebGl).
 
-![Screenshot](http://codebysd.github.io/webgl_3d_exp/screenshots/screenshot1.jpg)
+![Screenshot](https://raw.githubusercontent.com/codebysd/webgl_3d_exp/gh-pages/screenshots/screenshot1.jpg)
 
 Project uses the awesome [BabylonJS library](https://github.com/BabylonJS/Babylon.js) for rendering.
 Models used are from [BlendSwap](http://www.blendswap.com/).
