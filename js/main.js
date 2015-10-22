@@ -3,6 +3,7 @@ var BABYLON = require('babylonjs');
 // scene objects
 var Sky = require('./Sky');
 var Ground = require('./Ground');
+var Grass = require('./Grass');
 var Cam = require('./Cam');
 var Bot = require('./Bot');
 
@@ -20,6 +21,7 @@ window.addEventListener('resize',function(){
 var sky = new Sky(scene);
 var cam = new Cam(canvas,scene);
 var ground = new Ground(scene);
+var grass = new Grass(ground,scene);
 
 
 // load bot model

@@ -7,7 +7,7 @@ var BABYLON = require('babylonjs');
  */
 function Ground(scene){
     // mesh, deform with a heightmap
-    this.mesh = BABYLON.Mesh.CreateGroundFromHeightMap('ground_mesh','images/heightmap.png',1000,1000,100,0,50,scene);
+    this.mesh = BABYLON.Mesh.CreateGroundFromHeightMap('ground_mesh','images/heightmap.png',500,500,100,0,50,scene);
     this.mesh.receiveShadows = true;
     this.mesh.position.y = -50; // keep all heightmap below origin
 

@@ -13,7 +13,7 @@ function Bot(scene,mesh) {
     // mesh
     this.mesh = mesh;
     this.mesh.position = new BABYLON.Vector3(0,-6.9,0);
-    this.mesh.rotate(BABYLON.Axis.Z,-1,BABYLON.Space.LOCAL);
+    this.mesh.rotate(BABYLON.Axis.Z,-2,BABYLON.Space.LOCAL);
     this.mesh.scaling = new BABYLON.Vector3(3,3,3);
     this.cameraTarget = new BABYLON.Vector3(0,-2,0);
 

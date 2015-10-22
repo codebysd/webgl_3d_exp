@@ -6,11 +6,11 @@ More specifically, browsers that support OpenGL based rendering capabilities (We
 
 Project uses the awesome [BabylonJS library](https://github.com/BabylonJS/Babylon.js) for rendering.
 Models used are from [BlendSwap](http://www.blendswap.com/).
-Textures and environment maps are done via [Gimp](http://www.gimp.org/).
 Mesh material uses a rough combination of diffuse, specular and fresnel shader.
+Ground is generated from a heightmap and grass cover is procedurally distributed.
 
 ### [Play around with live demo](http://codebysd.github.io/webgl_3d_exp/)
-You'll need a reputed web browser and a machine with OpenGL support.
+You'll need a modern web browser capable of webgl and a machine with decent graphics hardware.
 
 ### Build and run
 1. Install [NodeJS](http://www.nodejs.org)
