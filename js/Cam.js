@@ -17,6 +17,7 @@ function Cam(canvas,scene){
     // limit zoom
     this.camera.lowerRadiusLimit = 15;
     this.camera.upperRadiusLimit = 50;
+    this.camera.wheelPrecision = 100;
 
     // attach to canvas
     this.camera.attachControl(canvas);

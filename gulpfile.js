@@ -29,6 +29,4 @@ gulp.task('bundle-js', function () {
 /**
  * Default task. Packages sources.
  */
-gulp.task('default', ['bundle-js'], function (done) {
-    done();
-});
+gulp.task('default', gulp.series('bundle-js'));

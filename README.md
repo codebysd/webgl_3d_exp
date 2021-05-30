@@ -5,7 +5,6 @@ More specifically, browsers that support OpenGL based rendering capabilities (We
 ![Screenshot](https://raw.githubusercontent.com/codebysd/webgl_3d_exp/gh-pages/screenshots/screenshot1.jpg)
 
 Project uses the awesome [BabylonJS library](https://github.com/BabylonJS/Babylon.js) for rendering.
-Models used are from [BlendSwap](http://www.blendswap.com/).
 Mesh material uses a rough combination of diffuse, specular and fresnel shader.
 Ground is generated from a heightmap and grass cover is made of procedurally distributed sprites.
 
