@@ -268,30 +268,18 @@ var cam = new Cam(canvas,scene);
 var ground = new Ground(scene);
 var grass = new Grass(ground,scene);
 
-// setup lens effects
-// var lensEffect = new BABYLON.LensRenderingPipeline('lens', {
-//     edge_blur: 1.0,
-//     chromatic_aberration: 1.0,
-//     distortion: 1.0,
-//     dof_focus_distance: cam.camera.radius,
-//     dof_aperture: 1.0,
-//     grain_amount: 0,
-//     dof_pentagon: true,
-//     dof_gain: 1.0,
-//     dof_threshold: 1.0,
-//     dof_darken: 0.25
-// }, scene, 1.0, cam.camera);
-
-// setup hrd rendering
-// var hdr = new BABYLON.HDRRenderingPipeline("hdr", scene, 1.0, null, cam.camera);
-// hdr.brightThreshold = 1.0;
-// hdr.gaussCoeff = 0.3;
-// hdr.gaussMean = 1.0;
-// hdr.gaussStandDev = 6.0;
-// hdr.minimumLuminance = 0.5;
-// hdr.luminanceDecreaseRate = 0.5;
-// hdr.luminanceIncreaserate = 0.5;
-// hdr.exposure = 2;
+// setup post process effects
+var pipeline = new BABYLON.DefaultRenderingPipeline('default_post_process',
+    false,scene,[cam.camera], true);
+pipeline.samples = 4;
+pipeline.depthOfFieldEnabled = true;
+pipeline.depthOfField.focalLength = 200;
+pipeline.depthOfField.fStop = 2;
+pipeline.depthOfFieldBlurLevel = BABYLON.DepthOfFieldEffectBlurLevel.High;
+pipeline.bloomEnabled = true;
+pipeline.bloomThreshold = 0.9;
+pipeline.bloomWeight = 0.2;
+pipeline.bloomScale = 2;
 
 // load bot model
 var loader = new BABYLON.AssetsManager(scene);
@@ -312,6 +300,9 @@ Bot.load(scene,loader,function(err,bot){
         // finally, start rendering
         engine.runRenderLoop(function(){
             cam.camera.alpha += 0.001; // orbit camera every frame
+
+            // change dof focus distance as per camera orbit distance
+            pipeline.depthOfField.focusDistance = cam.camera.radius*500;
 
             // update camera position, bot material's shader needs this for calculations
             bot.material.setVector3("cameraPosition", cam.camera.position);
